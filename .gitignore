@@ -1,3 +1,7 @@
+# Private info
+config/
+notes/
+
 # Logs
 logs
 *.log
