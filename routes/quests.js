@@ -10,7 +10,7 @@ const
 questsRouter.route('/:venue_id')
   .get(getQuests);
 
-questsRouter.route('/questions/:quest_id')
+questsRouter.route('/:quest_id/questions')
   .get(getQuestions);
 
 module.exports = questsRouter;
