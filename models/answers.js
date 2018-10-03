@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 const Clarifai = require('clarifai');
-const { apiKey } = require('../config/config');
+const { apiKey } = process.env || require('../config/config');
 
 const imageUpload = (data) => {
   const base64data = Buffer.from(data, 'base64');
