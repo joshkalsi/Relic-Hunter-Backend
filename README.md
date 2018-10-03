@@ -29,7 +29,6 @@ Back end for Relic Hunter Project
 - Is disabled access required at this stage?
 
 ### GET: quests/:quest_id/questions
-
 ```json
 "quest" {
   "quest_id": {
