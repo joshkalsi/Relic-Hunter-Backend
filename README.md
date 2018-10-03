@@ -4,7 +4,7 @@ Back end for Relic Hunter Project
 
 ## API Routes
 
-### quests/:venue_id
+### GET: quests/:venue_id
 
 ```json
 "quests" {
@@ -18,7 +18,8 @@ Back end for Relic Hunter Project
     "disabledAccess": true,
     "venueName": "MOSI",
     "venueArea": "Industrial Revolution"
-  }
+  },
+  "quest_id": { ... }
 }
 ```
 
@@ -27,8 +28,7 @@ Back end for Relic Hunter Project
 - Should suitability be enumerated?
 - Is disabled access required at this stage?
 
-### quests/:quest_id/questions
-
+### GET: quests/:quest_id/questions
 ```json
 "quest" {
   "quest_id": {
@@ -49,7 +49,7 @@ Back end for Relic Hunter Project
 
 - Think about how question titles, text and answers should be phrased
 
-### answers/:question_id
+### POST: answers/:question_id
 
 #### Request Body
 
