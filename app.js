@@ -8,6 +8,7 @@ const
   apiRouter = require('./routes/api');
 
 // Setup DB Connection
+// TODO
 
 // Parsing
 app.use(bodyParser.json());
@@ -28,14 +29,14 @@ app.use('/api', apiRouter);
 
 // 404
 app.use('/*', (req, res) => {
-  res.status(404).send({ error: 'Page not found' });
+  res.status(404).send({ error: 'Not Found' });
 });
 
 // Custom Errors
 app.use((err, req, res, next) => {
   if (err.name === 'CastError') {
     err.status = 400;
-    err.message = 'Provided ID was Invalid';
+    err.message = 'Invalid ID';
   };
   if (err.name === 'ValidationError') {
     err.status = 400;

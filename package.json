@@ -2,13 +2,15 @@
   "name": "relic-hunter-backend",
   "version": "0.0.0",
   "description": "Backend for Relic Hunter Project",
-    "engines": {
-      "npm": "6.1.0",
-      "node": "10.6.0"
-    },
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.6.0"
+  },
   "main": "listen.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon listen.js",
+    "start": "node listen.js",
+    "test": "standard && mocha ./spec/* --bail"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.4",
+    "standard": "^12.0.1",
     "supertest": "^3.3.0"
   }
 }
