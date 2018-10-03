@@ -10,8 +10,9 @@ const imageUpload = (data) => {
     ACL: 'public-read',
     ContentType: 'image/jpeg',
     ContentEncoding: 'base64'
-  }, res => {
-    console.log('Upload successful');
+  }, (err, data) => {
+    if (err) next(err);
+    else console.log('Upload successful \n' + data);
   })
 }
 
