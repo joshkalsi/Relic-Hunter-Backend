@@ -27,20 +27,11 @@ Back end for Relic Hunter Project
 - Should suitability be enumerated?
 - Is disabled access required at this stage?
 
-### quests/questions/:quest_id
+### quests/:quest_id/questions
 
 ```json
 "quest" {
   "quest_id": {
-    "title": "Science of the Ages",
-    "introText": "Explore the science of the industrial revolution",
-    "fullText": "An intriguing hunt through the science of the industrial revolution and first computers",
-    "iconUrl": "https://...",
-    "backgroundUrl": "https://...",
-    "suitability": "For 8-10 year olds",
-    "disabledAccess": true,
-    "venueName": "MOSI",
-    "venueArea": "Industrial Revolution",
     "questions": [
       {
         "question_id": 1,

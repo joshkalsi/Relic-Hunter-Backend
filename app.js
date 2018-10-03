@@ -3,7 +3,7 @@
 const
   express = require('express'),
   app = express(),
-  DB_URL = process.env.DB_URL || require('./config'),
+  // DB_URL = process.env.DB_URL || require('./config'),
   bodyParser = require('body-parser'),
   apiRouter = require('./routes/api');
 
