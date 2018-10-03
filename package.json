@@ -2,10 +2,10 @@
   "name": "relic-hunter-backend",
   "version": "0.0.0",
   "description": "Backend for Relic Hunter Project",
-    "engines": {
-      "npm": "6.1.0",
-      "node": "10.6.0"
-    },
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.6.0"
+  },
   "main": "listen.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/joshkalsi/Relic-Hunter-Backend#readme",
   "dependencies": {
+    "aws-sdk": "^2.327.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3"
