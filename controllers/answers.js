@@ -1,9 +1,19 @@
 'use strict';
 
-const { uploadImage } = require('../models/answers');
+const { imageUpload, imageCheck } = require('../models/answers');
 
 exports.createAnswer = (req, res, next) => {
   const data = req.body.answer.image;
-  uploadImage(data);
-  res.status(501).send({ message: 'Not Implemented' });
+  imageUpload(data)
+    .then(({ uploadData, url }) => {
+      console.log(uploadData);
+      imageCheck(url, 'Relic Hunter')
+        .then((checkData) => {
+          const value = checkData.outputs[0].data.concepts[0].value;
+          let isCorrect = false;
+          if (value > 0.6) isCorrect = true;
+          res.status(200).send({ answer: { answer_id: isCorrect } });
+        })
+        .catch(err => next(err));
+    });
 };
