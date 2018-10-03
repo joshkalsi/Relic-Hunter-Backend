@@ -11,7 +11,7 @@ exports.createAnswer = (req, res, next) => {
         .then((checkData) => {
           const value = checkData.outputs[0].data.concepts[0].value;
           let isCorrect = false;
-          if (value > 0.6) isCorrect = true;
+          if (value > 0.75) isCorrect = true;
           res.status(200).send({ answer: { answer_id: isCorrect } });
         })
         .catch(err => next(err));
