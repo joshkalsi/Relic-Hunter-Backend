@@ -3,11 +3,26 @@
 const
   express = require('express'),
   app = express(),
-  // DB_URL = process.env.DB_URL || require('./config')
-  apiRouter = require('./routes/api');
+  { Model } = require('objection'),
+  apiRouter = require('./routes/api'),
+  dbConfig = require('./config/db.js');
 
 // Setup DB Connection
-// TODO
+const connection = {
+  host: process.env.DB_HOST || dbConfig.host,
+  user: process.env.DB_USER || dbConfig.user,
+  password: process.env.DB_PASSWORD || dbConfig.password,
+  database: process.env.DB_DATABASE || dbConfig.database
+};
+
+// Initialise knex
+const Knex = require('knex')({
+  client: 'postgres', //pg
+  connection: connection
+});
+
+// Bind Models to knex instance
+Model.knex(knex);
 
 // Parsing
 app.use(express.json({ 'limit': '5mb' }));
