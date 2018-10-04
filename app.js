@@ -3,15 +3,14 @@
 const
   express = require('express'),
   app = express(),
-  // DB_URL = process.env.DB_URL || require('./config'),
-  bodyParser = require('body-parser'),
+  // DB_URL = process.env.DB_URL || require('./config')
   apiRouter = require('./routes/api');
 
 // Setup DB Connection
 // TODO
 
 // Parsing
-app.use(bodyParser.json({ limit: '50MB' }));
+app.use(express.json({ 'limit': '5mb' }));
 
 // Log Requests in Dev
 if (process.env.NODE_ENV === 'development') {
