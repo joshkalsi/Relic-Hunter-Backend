@@ -5,7 +5,7 @@ const
   Quest = require('../models/Quest');
 
 
-exports.getQuests = (req, res, next) => {
+exports.getQuests = async (req, res, next) => {
   const { venue_id } = req.params;
   const quests = await Quest.query()
     .skipUndefined()

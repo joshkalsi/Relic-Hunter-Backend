@@ -3,7 +3,7 @@ exports.up = knex => {
   return knex.schema
     .createTable('venues', table => {
       table.increments('id').primary();
-      table.string('name');
+      table.string('name').notNull();
       table.string('iconUrl');
       table.string('city');
     })
@@ -26,10 +26,10 @@ exports.up = knex => {
     .createTable('questions', table => {
       table.increments('id').primary();
       table
-        .integer('question_id')
+        .integer('quest_id')
         .unsigned()
         .references('id')
-        .inTable('questions')
+        .inTable('quests')
         .onDelete('SET NULL');
       table.string('title');
       table.string('text');

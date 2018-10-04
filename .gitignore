@@ -1,6 +1,7 @@
 # Private info
 config/
 notes/
+knexfile.js
 
 # Logs
 logs
