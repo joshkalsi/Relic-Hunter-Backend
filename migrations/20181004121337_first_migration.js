@@ -4,8 +4,7 @@ exports.up = knex => {
     .createTable('venues', table => {
       table.increments('id').primary();
       table.string('name').notNull();
-      table.string('iconUrl');
-      table.string('city');
+      table.string('icon_url');
     })
     .createTable('quests', table => {
       table.increments('id').primary();

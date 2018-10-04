@@ -7,8 +7,7 @@ exports.seed = function (knex, Promise) {
       return knex('venues').insert([
         {
           name: 'MOSI',
-          iconUrl: 'https://www.mosi.org/wp-content/uploads/2017/09/MOSI_Logo_Tag_Color2-e1506540739546.png',
-          city: 'Manchester'
+          icon_url: 'https://www.mosi.org/wp-content/uploads/2017/09/MOSI_Logo_Tag_Color2-e1506540739546.png'
         }
       ]);
     });
