@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "nodemon listen.js",
     "start": "node listen.js",
-    "test": "mocha ./spec/* --bail"
+    "test": "mocha --timeout 10000 ./spec/* --bail"
   },
   "repository": {
     "type": "git",
