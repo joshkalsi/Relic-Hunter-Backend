@@ -12,5 +12,4 @@ apiRouter.options('*', cors());
 apiRouter.use('/answers', answersRouter);
 apiRouter.use('/quests', questsRouter);
 
-
 module.exports = apiRouter;
