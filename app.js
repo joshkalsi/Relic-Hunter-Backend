@@ -26,7 +26,7 @@ const Knex = require('knex')({
 Model.knex(knex);
 
 // Parsing
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50MB' }));
 
 // Log Requests in Dev
 if (process.env.NODE_ENV === 'development') {
@@ -55,7 +55,7 @@ app.use((err, req, res, next) => {
   };
   if (err.name === 'ValidationError') {
     err.status = 400;
-    err.message = err.message;
+    // err.message = err.message;
   };
   if (err.status) res.status(err.status).send({ message: err.message });
   else next(err);
