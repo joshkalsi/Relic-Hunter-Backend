@@ -17,7 +17,7 @@ const connection = {
 };
 
 // Initialise knex
-const Knex = require('knex')({
+const knex = require('knex')({
   client: 'postgres', //pg
   connection: connection
 });

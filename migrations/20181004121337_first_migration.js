@@ -13,7 +13,7 @@ exports.up = knex => {
         .integer('venue_id')
         .unsigned()
         .references('id')
-        .inTable('venue')
+        .inTable('venues')
         .onDelete('SET NULL');
       table.string('title');
       table.string('intro_text');

@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS relic_hunter;
+CREATE DATABASE relic_hunter;
