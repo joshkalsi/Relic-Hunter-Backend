@@ -1,6 +1,6 @@
 'use strict';
 
-const { imageUpload, imageCheck } = require('../models/answers');
+const { imageUpload, imageCheck } = require('../api/api');
 
 exports.createAnswer = (req, res, next) => {
   const data = req.body.answer.image;
