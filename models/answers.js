@@ -1,13 +1,15 @@
 const AWS = require('aws-sdk');
 const Clarifai = require('clarifai');
-const { apiKey } = process.env || require('../config/config');
+
+let { apiKey } = process.env;
+if (process.env.NODE_ENV === 'test') apiKey = require('../config/config').apiKey;
 
 const imageUpload = (data) => {
   const base64data = Buffer.from(data, 'base64');
   const s3 = new AWS.S3();
   return new Promise((resolve, reject) => {
     const name = 'upload-test' + Date.now() + '.jpg';
-    const bucket = 'relic-hunter-test'
+    const bucket = 'relic-hunter-test';
     s3.putObject({
       Bucket: bucket,
       Key: name,
@@ -23,7 +25,7 @@ const imageUpload = (data) => {
       }
     });
   });
-}
+};
 
 const imageCheck = (url, questionID) => {
   const app = new Clarifai.App({
