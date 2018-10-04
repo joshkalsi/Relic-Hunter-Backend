@@ -4,8 +4,8 @@ const
   express = require('express'),
   app = express(),
   { Model } = require('objection'),
-  apiRouter = require('./routes/api'),
-  dbConfig = require('./config/db.js');
+  apiRouter = require('./routes/api')
+//dbConfig = require('./config/db.js');
 
 // Setup DB Connection
 const connection = {
@@ -17,7 +17,7 @@ const connection = {
 
 // Initialise knex
 const Knex = require('knex')({
-  client: 'postgres', //pg
+  client: 'postgres', // pg
   connection: connection
 });
 

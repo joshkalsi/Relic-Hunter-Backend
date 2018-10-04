@@ -6,7 +6,7 @@ exports.createAnswer = (req, res, next) => {
   const data = req.body.answer.image;
   imageUpload(data)
     .then(({ uploadData, url }) => {
-      imageCheck(url, 'Relic Hunter')
+      imageCheck(url, req.params.question_id)
         .then((checkData) => {
           const value = checkData.outputs[0].data.concepts[0].value;
           let isCorrect = false;
