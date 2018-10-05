@@ -1,16 +1,7 @@
 const AWS = require('aws-sdk');
 const Clarifai = require('clarifai');
-AWS.config.update({ region: 'eu-west-2' });
-let apiKey;
 
-const ec2 = new AWS.EC2();
-ec2.describeTags({}, (err, data) => {
-  if (err) console.log(err + 'err');
-  else apiKey = data.Tags.filter(tag => tag.Key === 'apiKey')[0].Value;
-  console.log(apiKey);
-});
-
-if (typeof apiKey !== 'string') apiKey = require('../config/config').apiKey;
+const apiKey = process.env.CLARIFAI_API_KEY || require('../config/config');
 
 const app = new Clarifai.App({
   'apiKey': apiKey
