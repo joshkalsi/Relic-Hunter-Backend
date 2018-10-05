@@ -23,8 +23,8 @@ exports.seed = function (knex, Promise) {
           quest_id: 1,
           title: "You're so hipster",
           text: "Find a mode of travel which allows you to dry your beard whilst getting to work",
-          hint_text: "It's bright red",
-          answer_text: 'Under the Northcoders heart'
+          hint_text: "Under the Northcoders heart",
+          answer_text: 'the bikes'
         },
         {
           quest_id: 2,
