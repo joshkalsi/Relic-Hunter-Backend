@@ -10,14 +10,14 @@ Back end for Relic Hunter Project
 "quests" {
   "quest_id": {
     "title": "Science of the Ages",
-    "introText": "Explore the science of the industrial revolution",
-    "fullText": "An intriguing hunt through the science of the industrial revolution and first computers",
-    "iconUrl": "https://...",
-    "backgroundUrl": "https://...",
+    "intro_text": "Explore the science of the industrial revolution",
+    "full_text": "An intriguing hunt through the science of the industrial revolution and first computers",
+    "icon_url": "https://...",
+    "background_url": "https://...",
     "suitability": "For 8-10 year olds",
     "disabledAccess": true,
-    "venueName": "MOSI",
-    "venueArea": "Industrial Revolution"
+    "venue_name": "MOSI",
+    "venue_area": "Industrial Revolution"
   },
   "quest_id": { ... }
 }
@@ -34,11 +34,11 @@ Back end for Relic Hunter Project
   "quest_id": {
     "questions": [
       {
-        "question_id": 1,
-        "questionTitle": "Steam Driven Wheel",
-        "questionText": "Find the largest steam driven wheel",
-        "hintText": "Look for the Firgrove Mill steam engine",
-        "answerText": "the wheel"
+        "id": 1,
+        "title": "Steam Driven Wheel",
+        "text": "Find the largest steam driven wheel",
+        "hint_text": "Look for the Firgrove Mill steam engine",
+        "answer_text": "the wheel"
       },
     ]
   }
@@ -64,7 +64,7 @@ Back end for Relic Hunter Project
 ```json
 "answer" {
   "answer_id": {
-    "isCorrect": true
+    "is_correct": true
   }
 }
 ```
