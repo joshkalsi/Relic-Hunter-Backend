@@ -3,10 +3,9 @@
 const
   express = require('express'),
   app = express(),
-  bodyParser = require('body-parser'),
   { Model } = require('objection'),
-  apiRouter = require('./routes/api'),
-  dbConfig = require('./config/db.js');
+  apiRouter = require('./routes/api')
+//dbConfig = require('./config/db.js');
 
 // Setup DB Connection
 const connection = {
@@ -17,8 +16,9 @@ const connection = {
 };
 
 // Initialise knex
-const knex = require('knex')({
-  client: 'postgres', //pg
+
+const Knex = require('knex')({
+  client: 'postgres', // pg
   connection: connection
 });
 
@@ -26,7 +26,7 @@ const knex = require('knex')({
 Model.knex(knex);
 
 // Parsing
-app.use(bodyParser.json({ limit: '50MB' }));
+app.use(express.json({ 'limit': '5mb' }));
 
 // Log Requests in Dev
 if (process.env.NODE_ENV === 'development') {
