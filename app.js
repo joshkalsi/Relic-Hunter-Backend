@@ -4,15 +4,21 @@ const
   express = require('express'),
   app = express(),
   { Model } = require('objection'),
-  apiRouter = require('./routes/api');
+  apiRouter = require('./routes/api'),
+  host = process.env.DB_HOST || require('./config/db').host,
+  user = process.env.DB_USER || require('./config/db').user,
+  password = process.env.DB_PASSWORD || require('./config/db').password,
+  database = process.env.DB_DATABASE || require('./config/db').database;
 
 // Setup DB Connection
 const connection = {
-  host: process.env.DB_HOST || require('./config/db').host,
-  user: process.env.DB_USER || require('./config/db').user,
-  password: process.env.DB_PASSWORD || require('./config/db').password,
-  database: process.env.DB_DATABASE || require('./config/db').database
+  host,
+  user,
+  password,
+  database
 };
+
+console.log(process.env);
 
 // Initialise knex
 
