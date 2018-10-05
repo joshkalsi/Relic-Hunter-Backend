@@ -18,8 +18,6 @@ const connection = {
   database
 };
 
-console.log(process.env);
-
 // Initialise knex
 
 const Knex = require('knex')({

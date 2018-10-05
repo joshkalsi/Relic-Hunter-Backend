@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const Clarifai = require('clarifai');
 
-const apiKey = process.env.CLARIFAI_API_KEY || require('../config/config');
+const apiKey = process.env.CLARIFAI_API_KEY || require('../config/config').apiKey;
 
 const app = new Clarifai.App({
   'apiKey': apiKey
@@ -29,7 +29,6 @@ const imageUpload = (data, name = 'attempt' + Date.now(), bucket = 'attempts') =
 };
 
 const imageCheck = (url, questionID) => {
-  console.log(apiKey);
   return app.models.predict({
     id: questionID
   }, url);
