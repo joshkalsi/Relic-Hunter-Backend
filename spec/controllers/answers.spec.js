@@ -10,7 +10,7 @@ describe('/api/answers/:question_id', () => {
   describe('POST /api/answers/:question_id', () => {
     it('POST request returns JSON object with status of Clarifai call', () => {
       return request
-        .post('/api/answers/1')
+        .post('/api/answers/testquestion')
         .send({ answer: { image: base64data } })
         .expect(200)
         .then(({ body }) => {
