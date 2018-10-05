@@ -6,8 +6,12 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return knex('venues').insert([
         {
+          name: 'Nortcoders',
+          icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/logoNorthcoders.png'
+        },
+        {
           name: 'MOSI',
-          icon_url: 'https://www.mosi.org/wp-content/uploads/2017/09/MOSI_Logo_Tag_Color2-e1506540739546.png'
+          icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/logoMOSI.png'
         }
       ]);
     });

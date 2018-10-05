@@ -7,10 +7,20 @@ exports.seed = function (knex, Promise) {
       return knex('quests').insert([
         {
           venue_id: 1,
+          title: 'Objects at Northcoders',
+          intro_text: 'Find objects at Northcoders',
+          full_text: 'Explplore the third floor and find these exciting things...',
+          icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/questNcObjects.png',
+          background_url: 'https://',
+          suitability: 'For 18-45 year old geeks',
+          venue_area: 'Third Floor'
+        },
+        {
+          venue_id: 2,
           title: 'Science of the Ages',
           intro_text: 'Explore the science of the industrial revolution',
           full_text: 'An intriguing hunt through the science of the industrial revolution and first computers',
-          icon_url: 'https://',
+          icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/questMosiScience.png',
           background_url: 'https://',
           suitability: 'For 8-10 year olds',
           venue_area: 'Industrial Revolution'
