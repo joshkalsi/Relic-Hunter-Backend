@@ -4,8 +4,8 @@ const
   express = require('express'),
   app = express(),
   { Model } = require('objection'),
-  apiRouter = require('./routes/api')
-//dbConfig = require('./config/db.js');
+  apiRouter = require('./routes/api'),
+  dbConfig = require('./config/db.js');
 
 // Setup DB Connection
 const connection = {
@@ -23,7 +23,7 @@ const Knex = require('knex')({
 });
 
 // Bind Models to knex instance
-Model.knex(knex);
+Model.knex(Knex);
 
 // Parsing
 app.use(express.json({ 'limit': '5mb' }));
