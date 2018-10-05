@@ -6,7 +6,8 @@ let apiKey;
 const ec2 = new AWS.EC2();
 ec2.describeTags({}, (err, data) => {
   if (err) console.log(err + 'err');
-  apiKey = data.Tags.filter(tag => tag.Key === 'apiKey')[0].Value;
+  else apiKey = data.Tags.filter(tag => tag.Key === 'apiKey')[0].Value;
+  console.log(apiKey);
 });
 
 if (typeof apiKey !== 'string') apiKey = require('../config/config').apiKey;
