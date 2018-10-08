@@ -39,7 +39,10 @@ const addConcept = (imageUrls, questionID) => {
     return {
       url,
       concepts: [
-        { id: questionID }
+        {
+          id: questionID,
+          value: true
+        }
       ]
     };
   });
@@ -47,10 +50,11 @@ const addConcept = (imageUrls, questionID) => {
 };
 
 const createAndTrainModel = (questionID) => {
-  return app.models.create(questionID, questionID)
-    .then(({ model }) => {
-      app.models.train(model.id);
-    });
+  return app.models.create(questionID, [questionID])
+    .then(model => {
+      return app.models.train(model.id);
+    })
+    .catch(err => console.log(err));
 };
 
 const referenceImageUpload = (base64Images, questionID) => {
