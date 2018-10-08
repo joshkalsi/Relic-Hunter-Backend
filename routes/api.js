@@ -10,7 +10,7 @@ const
 apiRouter.use(cors());
 apiRouter.options('*', cors());
 
-apiRouter.route('/reference')
+apiRouter.route('/references')
   .post(createReference);
 
 apiRouter.use('/answers', answersRouter);
