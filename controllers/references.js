@@ -9,7 +9,7 @@ exports.createReference = (req, res, next) => {
     .then(conceptResponse => {
       createAndTrainModel(questionID)
         .then(trainResponse => {
-          res.status(200).send({ trainResponse });
+          res.status(200).send({ information: trainResponse.modelVersion });
         });
     })
     .catch(err => console.log(err));
