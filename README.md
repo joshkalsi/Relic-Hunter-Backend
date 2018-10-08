@@ -44,6 +44,7 @@ Back end for Relic Hunter Project
     "questions": [
       {
         "id": 1,
+        "model_name": "steam-wheel",
         "title": "Steam Driven Wheel",
         "text": "Find the largest steam driven wheel",
         "hint_text": "Look for the Firgrove Mill steam engine",
@@ -64,7 +65,8 @@ Back end for Relic Hunter Project
 
 ```json
 "answer" {
-  "image": "base64 data string"
+  "image": "base64 data string",
+  "model_name": "steam-wheel"
 }
 ```
 
