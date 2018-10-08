@@ -30,6 +30,7 @@ exports.up = knex => {
         .references('id')
         .inTable('quests')
         .onDelete('SET NULL');
+      table.string('model_name');
       table.string('title');
       table.string('text');
       table.string('hint_text');

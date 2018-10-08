@@ -4,6 +4,17 @@ Back end for Relic Hunter Project
 
 ## API Routes
 
+### GET: venues/
+
+```json
+"venues": {
+  "venue_id": {
+    "name:": "MOSI",
+    "icon_url": "https://..."
+  }
+}
+```
+
 ### GET: quests/:venue_id
 
 ```json
@@ -15,11 +26,9 @@ Back end for Relic Hunter Project
     "icon_url": "https://...",
     "background_url": "https://...",
     "suitability": "For 8-10 year olds",
-    "disabledAccess": true,
     "venue_name": "MOSI",
     "venue_area": "Industrial Revolution"
-  },
-  "quest_id": { ... }
+  }
 }
 ```
 
@@ -35,6 +44,7 @@ Back end for Relic Hunter Project
     "questions": [
       {
         "id": 1,
+        "model_name": "steam-wheel",
         "title": "Steam Driven Wheel",
         "text": "Find the largest steam driven wheel",
         "hint_text": "Look for the Firgrove Mill steam engine",
@@ -55,7 +65,8 @@ Back end for Relic Hunter Project
 
 ```json
 "answer" {
-  "image": "base64 data string"
+  "image": "base64 data string",
+  "model_name": "steam-wheel"
 }
 ```
 
