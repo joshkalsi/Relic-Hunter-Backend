@@ -75,7 +75,7 @@ Back end for Relic Hunter Project
 ```json
 "answer" {
   "answer_id": {
-    "is_correct": true
+    "isCorrect": true
   }
 }
 ```
