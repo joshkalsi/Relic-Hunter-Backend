@@ -5,7 +5,7 @@ const { imageUpload, imageCheck } = require('../api/api');
 exports.createAnswer = (req, res, next) => {
   const data = req.body.answer.image;
   const modelName = req.body.answer.model_name;
-  const questionID = req.params.question_id;
+  // const questionID = req.params.question_id;
   imageUpload(data)
     .then(({ uploadData, url }) => {
       imageCheck(url, modelName)

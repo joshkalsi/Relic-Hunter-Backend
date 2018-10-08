@@ -84,7 +84,9 @@ Back end for Relic Hunter Project
 
 - Answer response object may have more options once we design the create Quests part of the app
 
-### POST: /api/references
+### POST: /api/references/train
+
+Train model from array of image URLs
 
 #### Request Body
 
@@ -98,3 +100,5 @@ Back end for Relic Hunter Project
 ```
 
 ### Response Body
+
+// To do
