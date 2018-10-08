@@ -4,9 +4,10 @@ const { imageUpload, imageCheck } = require('../api/api');
 
 exports.createAnswer = (req, res, next) => {
   const data = req.body.answer.image;
+  const modelName = req.body.answer.model_name;
   imageUpload(data)
     .then(({ uploadData, url }) => {
-      imageCheck(url, req.params.question_id)
+      imageCheck(url, modelName)
         .then((checkData) => {
           const value = checkData.outputs[0].data.concepts[0].value;
           let isCorrect = false;
