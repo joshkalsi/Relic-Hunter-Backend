@@ -5,7 +5,7 @@ const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const expect = chai.expect;
 
-const { imageUpload, imageCheck, addConcept, createAndTrainModel, referenceImageUpload } = require('../../api/api');
+const { imageUpload, imageCheck } = require('../../api/api');
 const base64data = require('../images/testImage1').testImage1;
 
 describe('imageUpload', () => {
