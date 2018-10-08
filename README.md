@@ -4,6 +4,17 @@ Back end for Relic Hunter Project
 
 ## API Routes
 
+### GET: venues/
+
+```json
+"venues": {
+  "venue_id": {
+    "name:": "MOSI",
+    "icon_url": "https://..."
+  }
+}
+```
+
 ### GET: quests/:venue_id
 
 ```json
@@ -15,11 +26,9 @@ Back end for Relic Hunter Project
     "icon_url": "https://...",
     "background_url": "https://...",
     "suitability": "For 8-10 year olds",
-    "disabledAccess": true,
     "venue_name": "MOSI",
     "venue_area": "Industrial Revolution"
-  },
-  "quest_id": { ... }
+  }
 }
 ```
 

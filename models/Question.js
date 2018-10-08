@@ -5,7 +5,7 @@ const Quest = require('./Quest');
 
 class Question extends Model {
   static get tableName() {
-    return 'question';
+    return 'questions';
   }
 }
 

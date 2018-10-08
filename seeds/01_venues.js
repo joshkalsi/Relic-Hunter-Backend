@@ -6,7 +6,7 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return knex('venues').insert([
         {
-          name: 'Nortcoders',
+          name: 'Northcoders',
           icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/logoNorthcoders.png'
         },
         {
