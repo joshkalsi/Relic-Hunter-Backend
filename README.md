@@ -15,11 +15,12 @@ Back end for Relic Hunter Project
 }
 ```
 
-### GET: quests/:venue_id
+### GET: quests/
 
 ```json
-"quests" {
-  "quest_id": {
+"quests" [
+  {
+    "quest_id": 1,
     "title": "Science of the Ages",
     "intro_text": "Explore the science of the industrial revolution",
     "full_text": "An intriguing hunt through the science of the industrial revolution and first computers",
@@ -28,8 +29,26 @@ Back end for Relic Hunter Project
     "suitability": "For 8-10 year olds",
     "venue_name": "MOSI",
     "venue_area": "Industrial Revolution"
-  }
-}
+  },
+]
+```
+
+### GET: quests/:venue_id
+
+```json
+"quests" [
+  {
+    "quest_id": 1,
+    "title": "Science of the Ages",
+    "intro_text": "Explore the science of the industrial revolution",
+    "full_text": "An intriguing hunt through the science of the industrial revolution and first computers",
+    "icon_url": "https://...",
+    "background_url": "https://...",
+    "suitability": "For 8-10 year olds",
+    "venue_name": "MOSI",
+    "venue_area": "Industrial Revolution"
+  },
+]
 ```
 
 #### Notes
@@ -39,11 +58,10 @@ Back end for Relic Hunter Project
 
 ### GET: quests/:quest_id/questions
 ```json
-"quest" {
-  "quest_id": {
     "questions": [
       {
         "id": 1,
+        "quest_id": 1,
         "model_name": "steam-wheel",
         "title": "Steam Driven Wheel",
         "text": "Find the largest steam driven wheel",
@@ -51,8 +69,6 @@ Back end for Relic Hunter Project
         "answer_text": "the wheel"
       },
     ]
-  }
-}
 ```
 
 #### Notes
