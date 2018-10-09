@@ -36,12 +36,6 @@ exports.getQuestsByVenueId = async (req, res, next) => {
     .where('venue_id', '=', venue_id);
 
   // test error handling
-
-  /*   if (quests.length === 0) {
-      console.log('no quests');
-      throw createStatusCodeError(404);
-    } */
-
   res.status(200).send({ quests });
 };
 
@@ -59,9 +53,3 @@ exports.getQuestions = async (req, res, next) => {
 };
  */
 
-// The error returned by this function is handled in the error handler middleware in app.js.
-function createStatusCodeError(statusCode) {
-  return Object.assign(new Error(), {
-    statusCode
-  });
-};
