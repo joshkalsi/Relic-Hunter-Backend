@@ -7,8 +7,7 @@ const
 
 exports.createQuest = async (req, res, next) => {
   const { venue_id } = req.params;
-  const { title, intro_text, full_text, icon_url, background_url, suitability, venue_area } = req.body.newQuest;
-  const newQuest = { title, intro_text, full_text, icon_url, background_url, suitability, venue_area, venue_id };
+  const newQuest = { ...req.body.newQuest, venue_id };
   const insertedNewQuest = await Quest.query()
     .insert(newQuest);
   res.status(201).send({ message: 'Quest Added', quest: insertedNewQuest });
