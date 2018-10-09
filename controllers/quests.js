@@ -1,7 +1,6 @@
 'use strict';
 
 const
-  // { transaction } = require('objection'),
   Quest = require('../models/Quest'),
   Question = require('../models/Question');
 
