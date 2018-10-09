@@ -3,6 +3,8 @@
 const
   questsRouter = require('express').Router(),
   {
+    createQuest,
+    createQuestion,
     getQuests,
     getQuestsByVenueId,
     getQuestions
@@ -11,10 +13,12 @@ const
 questsRouter.route('/')
   .get(getQuests);
 
-  questsRouter.route('/:venue_id')
-  .get(getQuestsByVenueId);
+questsRouter.route('/:venue_id')
+  .get(getQuestsByVenueId)
+  .put(createQuest);
 
 questsRouter.route('/:quest_id/questions')
-  .get(getQuestions);
+  .get(getQuestions)
+  .put(createQuestion);
 
 module.exports = questsRouter;

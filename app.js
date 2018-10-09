@@ -19,7 +19,6 @@ const connection = {
 };
 
 // Initialise knex
-
 const Knex = require('knex')({
   client: 'postgres', // pg
   connection: connection
@@ -52,6 +51,10 @@ app.use('/*', (req, res) => {
 
 // Custom Errors
 app.use((err, req, res, next) => {
+
+  if (err) console.log(err, '<< custom errors app.js')
+
+
   if (err.name === 'CastError') {
     err.status = 400;
     err.message = 'Invalid ID';
