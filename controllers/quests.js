@@ -68,6 +68,18 @@ exports.getQuestions = async (req, res, next) => {
   }
 };
 
+exports.togglePublished = async (req, res, next) => {
+  try {
+    const quest_id = parseInt(req.params.quest_id);
+    let published = false;
+    if (req.query.published === 'true') published = true;
+    const quest = await Quest.query()
+      .patchAndFetchById(quest_id, { is_published: published });
+    res.status(200).send(quest);
+  } catch (err) {
+    next(err);
+  }
+};
 /* exports.getQuestions = (req, res, next) => {
   res.status(501).send({ message: 'Not Implemented' });
 };
