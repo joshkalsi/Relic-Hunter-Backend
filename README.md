@@ -20,7 +20,7 @@ Back end for Relic Hunter Project
 ```json
 "quests" [
   {
-    "quest_id": 1,
+    "id": 1,
     "title": "Science of the Ages",
     "intro_text": "Explore the science of the industrial revolution",
     "full_text": "An intriguing hunt through the science of the industrial revolution and first computers",
@@ -38,7 +38,7 @@ Back end for Relic Hunter Project
 ```json
 "quests" [
   {
-    "quest_id": 1,
+    "id": 1,
     "title": "Science of the Ages",
     "intro_text": "Explore the science of the industrial revolution",
     "full_text": "An intriguing hunt through the science of the industrial revolution and first computers",
