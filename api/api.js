@@ -28,19 +28,19 @@ const imageUpload = (data, name = 'attempt' + Date.now(), bucket = 'attempts') =
   });
 };
 
-const imageCheck = (url, questionID) => {
+const imageCheck = (url, model_name) => {
   return app.models.predict({
-    id: questionID
+    id: model_name
   }, url);
 };
 
-const addConcept = (imageUrls, questionID) => {
+const addConcept = (imageUrls, model_name) => {
   const imagesWithConcepts = imageUrls.map(url => {
     return {
       url,
       concepts: [
         {
-          id: questionID,
+          id: model_name,
           value: true
         }
       ]
@@ -49,29 +49,29 @@ const addConcept = (imageUrls, questionID) => {
   return app.inputs.create(imagesWithConcepts);
 };
 
-const createAndTrainModel = (questionID) => {
-  return app.models.create(questionID, [questionID])
+const createAndTrainModel = (model_name) => {
+  return app.models.create(model_name, [model_name])
     .then(model => {
       return app.models.train(model.id);
     })
     .catch(err => console.log(err));
 };
 
-const referenceImageUpload = (base64Images, questionID) => {
-  const s3 = new AWS.S3();
-  s3.createBucket({
-    Bucket: questionID,
-    CreateBucketConfiguration: {
-      LocationConstraint: 'EU'
-    }
-  }, (err, data) => {
-    if (err) console.log(err);
-    else {
-      base64Images.forEach((image, index) => {
-        imageUpload(image, questionID + index, questionID);
-      });
-    }
-  });
-};
+// const referenceImageUpload = (base64Images, questionID) => {
+//   const s3 = new AWS.S3();
+//   s3.createBucket({
+//     Bucket: questionID,
+//     CreateBucketConfiguration: {
+//       LocationConstraint: 'EU'
+//     }
+//   }, (err, data) => {
+//     if (err) console.log(err);
+//     else {
+//       base64Images.forEach((image, index) => {
+//         imageUpload(image, questionID + index, questionID);
+//       });
+//     }
+//   });
+// };
 
-module.exports = { imageUpload, imageCheck, addConcept, createAndTrainModel, referenceImageUpload };
+module.exports = { imageUpload, imageCheck, addConcept, createAndTrainModel };

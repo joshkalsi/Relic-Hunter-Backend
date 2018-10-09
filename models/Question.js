@@ -36,7 +36,6 @@ class Question extends Model {
       }
     };
   }
-
 }
 
 module.exports = Question;

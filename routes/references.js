@@ -3,10 +3,10 @@
 const referencesRouter = require('express').Router();
 const { trainModelFromUrls, uploadReference } = require('../controllers/references');
 
-referencesRouter.route('/train')
-  .post(trainModelFromUrls);
-
-referencesRouter.route('/upload')
+referencesRouter.route('/:question_id')
   .post(uploadReference);
+
+referencesRouter.route('/:question_id/train')
+  .get(trainModelFromUrls);
 
 module.exports = referencesRouter;

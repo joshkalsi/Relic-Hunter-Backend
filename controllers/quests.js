@@ -7,11 +7,12 @@ const
 
 exports.createQuest = async (req, res, next) => {
   try {
-    const { venue_id } = req.params;
-    const newQuest = { ...req.body.newQuest, venue_id };
-    const insertedNewQuest = await Quest.query()
-      .insert(newQuest);
-    res.status(201).send({ message: 'Quest Added', quest: insertedNewQuest });
+    let { venue_id } = req.params;
+    venue_id = parseInt(venue_id);
+    const quest = await Quest.query()
+      .insert({ ...req.body, venue_id })
+      .returning('*');
+    res.status(201).send({ quest });
   } catch (err) {
     next(err);
   }
@@ -19,12 +20,12 @@ exports.createQuest = async (req, res, next) => {
 
 exports.createQuestion = async (req, res, next) => {
   try {
-    const { quest_id } = req.params;
-    const { model_name, title, text, hint_text, answer_text } = req.body.newQuestion;
-    const newQuestion = { model_name, title, text, hint_text, answer_text, quest_id };
-    const insertedNewQuestion = await Question.query()
-      .insert(newQuestion);
-    res.status(201).send({ message: 'Question Added', question: insertedNewQuestion });
+    let { quest_id } = req.params;
+    quest_id = parseInt(quest_id);
+    const question = await Question.query()
+      .insert({ ...req.body, quest_id })
+      .returning('*');
+    res.status(201).send({ question });
   } catch (err) {
     next(err);
   }
