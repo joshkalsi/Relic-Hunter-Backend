@@ -13,7 +13,8 @@ exports.seed = function (knex, Promise) {
           icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/questNcObjects.png',
           background_url: 'https://',
           suitability: 'For 18-45 year old geeks',
-          venue_area: 'Third Floor'
+          venue_area: 'Third Floor',
+          is_published: true
         },
         {
           venue_id: 2,
@@ -23,7 +24,8 @@ exports.seed = function (knex, Promise) {
           icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/questMosiScience.png',
           background_url: 'https://',
           suitability: 'For 8-10 year olds',
-          venue_area: 'Industrial Revolution'
+          venue_area: 'Industrial Revolution',
+          is_published: true
         }
       ]);
     });
