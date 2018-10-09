@@ -35,8 +35,7 @@ exports.up = knex => {
       table.string('text');
       table.string('hint_text');
       table.string('answer_text');
-    })
-
+    });
 };
 
 exports.down = knex => {

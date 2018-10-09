@@ -15,10 +15,10 @@ questsRouter.route('/')
 
 questsRouter.route('/:venue_id')
   .get(getQuestsByVenueId)
-  .put(createQuest);
+  .post(createQuest);
 
 questsRouter.route('/:quest_id/questions')
   .get(getQuestions)
-  .put(createQuestion);
+  .post(createQuestion);
 
 module.exports = questsRouter;
