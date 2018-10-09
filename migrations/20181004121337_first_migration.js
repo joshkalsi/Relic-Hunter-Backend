@@ -50,7 +50,7 @@ exports.up = knex => {
         .inTable('questions')
         .onDelete('SET NULL');
       table.string('url');
-    })
+    });
 };
 
 exports.down = knex => {

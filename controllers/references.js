@@ -1,7 +1,8 @@
 'use strict';
 
-const { addConcept, createAndTrainModel, imageUpload } = require('../api/api');
+const { addConcept, createAndTrainModel, imageUpload, imageCheck } = require('../api/api');
 const ReferenceImage = require('../models/ReferenceImage');
+const Question = require('../models/Question');
 
 exports.trainModelFromUrls = (req, res, next) => {
   const question_id = parseInt(req.params.question_id);
@@ -49,5 +50,27 @@ exports.uploadReference = (req, res, next) => {
     .catch(err => {
       console.log(err);
       next(err);
+    });
+};
+
+exports.testModel = (req, res, next) => {
+  const data = req.body.image;
+  const question_id = parseInt(req.params.question_id);
+  Question.query()
+    .select('model_name')
+    .where({ id: question_id })
+    .then(result => {
+      const { model_name } = result[0];
+      imageUpload(data)
+        .then(({ uploadData, url }) => {
+          imageCheck(url, model_name)
+            .then((checkData) => {
+              const value = checkData.outputs[0].data.concepts[0].value;
+              let isCorrect = false;
+              if (value > 0.75) isCorrect = true;
+              res.status(200).send({ answer: { answer_id: { isCorrect } } });
+            })
+            .catch(err => next(err));
+        });
     });
 };
