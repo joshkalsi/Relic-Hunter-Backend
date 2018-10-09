@@ -12,7 +12,7 @@ exports.trainModelFromUrls = (req, res, next) => {
     .where({ question_id: question_id })
     .then(references => {
       if (references.length < 10) {
-        res.status(400).send({ message: 'Take more pictures' });
+        res.status(400).send({ message: `Not enough pictures to train - need ${10 - references.length} more` });
       } else {
         const urls = references.map(reference => reference.url);
         const model_name = references[0].model_name;
