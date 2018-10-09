@@ -1,6 +1,7 @@
 'use strict';
 
 const Model = require('objection').Model;
+const path = require('path');
 
 class Question extends Model {
   static get tableName() {
@@ -28,7 +29,7 @@ class Question extends Model {
     return {
       owner: {
         relation: Model.BelongsToOneRelation,
-        modelClass: __dirname + '/Quest',
+        modelClass: path.join(__dirname, '/Quest'),
         join: {
           from: 'questions.quest_id',
           to: 'quests.id'

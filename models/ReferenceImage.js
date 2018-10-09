@@ -1,6 +1,7 @@
 'use strict';
 
 const Model = require('objection').Model;
+const path = require('path');
 
 class ReferenceImage extends Model {
   static get tableName() {
@@ -15,7 +16,7 @@ class ReferenceImage extends Model {
       properties: {
         id: { type: 'integer' },
         question_id: { type: 'integer' },
-        url: { type: 'string', minLength: 11, maxLength: 2083 },
+        url: { type: 'string', minLength: 11, maxLength: 2083 }
       }
     };
   }
@@ -24,7 +25,7 @@ class ReferenceImage extends Model {
     return {
       owner: {
         relation: Model.BelongsToOneRelation,
-        modelClass: __dirname + '/Question',
+        modelClass: path.join(__dirname, '/Question'),
         join: {
           from: 'references.question_id',
           to: 'questions.id'
@@ -32,7 +33,6 @@ class ReferenceImage extends Model {
       }
     };
   }
-
 }
 
 module.exports = ReferenceImage;
