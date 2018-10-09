@@ -27,7 +27,7 @@ Back end for Relic Hunter Project
     "icon_url": "https://...",
     "background_url": "https://...",
     "suitability": "For 8-10 year olds",
-    "venue_name": "MOSI",
+    "venue_id": "MOSI",
     "venue_area": "Industrial Revolution"
   },
 ]
@@ -45,7 +45,7 @@ Back end for Relic Hunter Project
     "icon_url": "https://...",
     "background_url": "https://...",
     "suitability": "For 8-10 year olds",
-    "venue_name": "MOSI",
+    "venue_id": "MOSI",
     "venue_area": "Industrial Revolution"
   },
 ]

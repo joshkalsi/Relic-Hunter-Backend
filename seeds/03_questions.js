@@ -11,7 +11,8 @@ exports.seed = function (knex, Promise) {
           title: 'Feeling thirsty',
           text: 'Find a way to quench your thirst',
           hint_text: 'This first one you see on entering',
-          answer_text: 'the watercooler'
+          answer_text: 'the watercooler',
+          is_published: true
         },
         {
           quest_id: 1,
@@ -19,7 +20,8 @@ exports.seed = function (knex, Promise) {
           title: 'Is it hot in here?',
           text: "Something in the kitchen is burning, you'll need this item to put it out",
           hint_text: "It's bright red",
-          answer_text: 'the fire extinguisher'
+          answer_text: 'the fire extinguisher',
+          is_published: true
         },
         {
           quest_id: 1,
@@ -27,7 +29,8 @@ exports.seed = function (knex, Promise) {
           title: "You're so hipster",
           text: "Find a mode of travel which allows you to dry your beard whilst getting to work",
           hint_text: "Under the Northcoders heart",
-          answer_text: 'the bikes'
+          answer_text: 'the bikes',
+          is_published: true
         },
         {
           quest_id: 2,
@@ -35,7 +38,8 @@ exports.seed = function (knex, Promise) {
           title: 'Steam Engines',
           text: 'Find the largest steam driven wheel',
           hint_text: 'Look for the Firgrove Mill steam engine',
-          answer_text: 'the wheel'
+          answer_text: 'the wheel',
+          is_published: true
         }
       ]);
     });
