@@ -21,6 +21,7 @@ exports.createQuestion = async (req, res, next) => {
   try {
     let { quest_id } = req.params;
     quest_id = parseInt(quest_id);
+    req.body.model_name = Date.now().valueOf();
     const question = await Question.query()
       .insert({ ...req.body, quest_id })
       .returning('*');
