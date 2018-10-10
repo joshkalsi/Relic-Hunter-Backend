@@ -54,7 +54,7 @@ exports.uploadReference = (req, res, next) => {
 };
 
 exports.testModel = (req, res, next) => {
-  const data = req.body.image;
+  const data = req.body.answer.image;
   const question_id = parseInt(req.params.question_id);
   Question.query()
     .select('model_name')

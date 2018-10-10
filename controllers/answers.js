@@ -11,7 +11,6 @@ exports.createAnswer = (req, res, next) => {
     .where({ id: question_id })
     .then(result => {
       const { model_name } = result[0];
-
       imageUpload(data)
         .then(({ uploadData, url }) => {
           imageCheck(url, model_name)
