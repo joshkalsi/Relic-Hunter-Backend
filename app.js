@@ -1,30 +1,38 @@
 'use strict';
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 const
   express = require('express'),
   app = express(),
   { Model } = require('objection'),
-  apiRouter = require('./routes/api'),
-  host = process.env.DB_HOST || require('./config/db').host,
-  user = process.env.DB_USER || require('./config/db').user,
-  password = process.env.DB_PASSWORD || require('./config/db').password,
-  database = process.env.DB_DATABASE || require('./config/db').database;
+  apiRouter = require('./routes/api');
 
-// Setup DB Connection
-const connection = {
-  host,
-  user,
-  password,
-  database
+let knexConfig;
+
+if (process.env.NODE_ENV === 'production') {
+  knexConfig = {
+    client: 'postgresql',
+    connection: {
+      host: process.env.DB_HOST,
+      database: process.env.DB_DATABASE,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
+  };
+} else {
+  knexConfig = require('./knexfile')[process.env.NODE_ENV];
 };
 
-// Initialise knex
-const Knex = require('knex')({
-  client: 'postgres', // pg
-  connection: connection
-});
-
-// Bind Models to knex instance
+// Initialise knex and bind models to knex instance
+const Knex = require('knex')(knexConfig);
 Model.knex(Knex);
 
 // Parsing
@@ -51,7 +59,6 @@ app.use('/*', (req, res) => {
 
 // Custom Errors
 app.use((err, req, res, next) => {
-  if (err) console.log(err, '<< custom errors app.js');
 
   if (err.name === 'CastError') {
     err.status = 400;
