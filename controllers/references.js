@@ -71,6 +71,7 @@ exports.testModel = (req, res, next) => {
               Question.query()
                 .patchAndFetchById(question_id, { is_published: isCorrect })
                 .then((question) => {
+                  console.log(question);
                   if (isCorrect) res.status(200).send(question);
                   else res.status(400).send({ message: 'Test failed' });
                 })
