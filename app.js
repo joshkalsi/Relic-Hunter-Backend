@@ -51,9 +51,7 @@ app.use('/*', (req, res) => {
 
 // Custom Errors
 app.use((err, req, res, next) => {
-
-  if (err) console.log(err, '<< custom errors app.js')
-
+  if (err) console.log(err, '<< custom errors app.js');
 
   if (err.name === 'CastError') {
     err.status = 400;

@@ -27,8 +27,9 @@ Back end for Relic Hunter Project
     "icon_url": "https://...",
     "background_url": "https://...",
     "suitability": "For 8-10 year olds",
-    "venue_name": "MOSI",
-    "venue_area": "Industrial Revolution"
+    "venue_id": 1,
+    "venue_area": "Industrial Revolution",
+    "is_published": false
   },
 ]
 ```
@@ -45,16 +46,26 @@ Back end for Relic Hunter Project
     "icon_url": "https://...",
     "background_url": "https://...",
     "suitability": "For 8-10 year olds",
-    "venue_name": "MOSI",
-    "venue_area": "Industrial Revolution"
+    "venue_id": 1,
+    "venue_area": "Industrial Revolution",
+    "is_published": true
   },
 ]
 ```
 
-#### Notes
+### POST: quests/:venue_id
 
-- Should suitability be enumerated?
-- Is disabled access required at this stage?
+```json
+  {
+    "title": "Science of the Ages",
+    "intro_text": "Explore the science of the industrial revolution",
+    "full_text": "An intriguing hunt through the science of the industrial revolution and first computers",
+    "icon_url": "https://...",
+    "background_url": "https://...",
+    "suitability": "For 8-10 year olds",
+    "venue_area": "Industrial Revolution"
+  }
+```
 
 ### GET: quests/:quest_id/questions
 ```json
@@ -71,9 +82,16 @@ Back end for Relic Hunter Project
     ]
 ```
 
-#### Notes
+### POST: quests/:quest_id/questions
 
-- Think about how question titles, text and answers should be phrased
+```json
+    {
+      "title": "Steam Driven Wheel",
+      "text": "Find the largest steam driven wheel",
+      "hint_text": "Look for the Firgrove Mill steam engine",
+      "answer_text": "the wheel"
+    }
+```
 
 ### POST: answers/:question_id
 
@@ -96,25 +114,45 @@ Back end for Relic Hunter Project
 }
 ```
 
-#### Notes
+### POST: references/:question_id
 
-- Answer response object may have more options once we design the create Quests part of the app
-
-### POST: /api/references/train
-
-Train model from array of image URLs
+Adds an image to train a question
 
 #### Request Body
 
 ```json
 {
-  "references": {
-    "urls": [image urls],
-    "questionID": questionID
-  }
+  "image": "base64 data string"
 }
 ```
 
-### Response Body
+#### Response Body
 
-// To do
+```json
+image: {
+  "id": 1,
+  "url": "http://",
+  "question_id": 1
+}
+```
+
+
+### GET: references/:question_id/train
+
+Trains a model once 10 or more photos have been uploaded
+
+#### Response 200
+
+```json
+ {
+  "message": "Model trained"
+}
+```
+
+#### Response 400
+
+```json
+ {
+  "message": "Not enough images to train"
+}
+```

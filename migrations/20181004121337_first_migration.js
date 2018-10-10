@@ -31,21 +31,31 @@ exports.up = knex => {
         .unsigned()
         .references('id')
         .inTable('quests')
-        .onDelete('SET NULL');
-      table.string('model_name');
+        .onDelete('CASCADE');
+      table.string('model_name')
+        .defaultTo(Date.now().valueOf());
       table.string('title');
       table.string('text');
       table.string('hint_text');
       table.string('answer_text');
       table.string('is_published')
         .defaultTo(false);
-      table.string('is_tested')
-        .defaultTo(false);
+    })
+    .createTable('references', table => {
+      table.increments('id').primary();
+      table
+        .integer('question_id')
+        .unsigned()
+        .references('id')
+        .inTable('questions')
+        .onDelete('SET NULL');
+      table.string('url');
     });
 };
 
 exports.down = knex => {
   return knex.schema
+    .dropTableIfExists('references')
     .dropTableIfExists('questions')
     .dropTableIfExists('quests')
     .dropTableIfExists('venues');

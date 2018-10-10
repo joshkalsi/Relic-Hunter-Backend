@@ -7,7 +7,8 @@ const
     createQuestion,
     getQuests,
     getQuestsByVenueId,
-    getQuestions
+    getQuestions,
+    togglePublished
   } = require('../controllers/quests');
 
 questsRouter.route('/')
@@ -20,5 +21,8 @@ questsRouter.route('/:venue_id')
 questsRouter.route('/:quest_id/questions')
   .get(getQuestions)
   .post(createQuestion);
+
+questsRouter.route('/:quest_id/publish')
+  .patch(togglePublished);
 
 module.exports = questsRouter;

@@ -1,7 +1,7 @@
 'use strict';
 
 const Model = require('objection').Model;
-const Question = require('./Question');
+const path = require('path');
 
 class Quest extends Model {
   static get tableName() {
@@ -22,7 +22,7 @@ class Quest extends Model {
         background_url: { type: 'string', minLength: 11, maxLength: 2083 },
         suitability: { type: 'string', minLength: 3, maxLength: 255 },
         venue_id: { type: 'integer' },
-        venue_area: { type: 'string', minLength: 3, maxLength: 255 },
+        venue_area: { type: 'string', minLength: 3, maxLength: 255 }
       }
     };
   }
@@ -31,7 +31,7 @@ class Quest extends Model {
     return {
       owner: {
         relation: Model.BelongsToOneRelation,
-        modelClass: __dirname + '/Venue',
+        modelClass: path.join(__dirname, '/Venue'),
         join: {
           from: 'quests.venue_id',
           to: 'venues.id'
@@ -39,7 +39,6 @@ class Quest extends Model {
       }
     };
   }
-
 }
 
 module.exports = Quest;
