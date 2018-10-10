@@ -33,7 +33,7 @@ exports.trainModelFromUrls = (req, res, next) => {
 };
 
 exports.uploadReference = (req, res, next) => {
-  const data = req.body.image;
+  const data = req.body.answer.image;
   const name = 'reference' + Date.now();
   let { question_id } = req.params;
   question_id = parseInt(question_id);
