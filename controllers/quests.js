@@ -33,7 +33,7 @@ exports.createQuestion = async (req, res, next) => {
 exports.getQuests = async (req, res, next) => {
   // returns all quests without filtering
   try {
-    const quests = await Quest.query()
+    const quests = await Quest.query();
     res.status(200).send({ quests });
   } catch (err) {
     next(err);
@@ -60,7 +60,7 @@ exports.getQuestions = async (req, res, next) => {
     const questions = await Question.query()
       .skipUndefined()
       .where('quest_id', '=', quest_id)
-      .where('is_published', '=', true);;
+      .where('is_published', '=', true);
     res.status(200).send({ questions });
   } catch (err) {
     next(err);
