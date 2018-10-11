@@ -12,7 +12,7 @@ exports.trainModelFromUrls = (req, res, next) => {
     .join('questions', 'references.question_id', 'questions.id')
     .where({ question_id: question_id })
     .then(references => {
-      if (references.length < 3) {
+      if (references.length < 10) {
         res.status(400).send({ message: `Not enough pictures to train - need ${10 - references.length} more` });
       } else {
         const urls = references.map(reference => reference.url);
@@ -68,11 +68,9 @@ exports.testModel = (req, res, next) => {
               const value = checkData.outputs[0].data.concepts[0].value;
               let isCorrect = false;
               if (value > 0.75) isCorrect = true;
-              console.log(isCorrect, 'iscorrect');
               Question.query()
                 .patchAndFetchById(question_id, { is_published: isCorrect })
                 .then((question) => {
-                  console.log(question, 'question');
                   res.status(200).send({ answer: { answer_id: { isCorrect } } });
                 })
                 .catch(err => next(err));
