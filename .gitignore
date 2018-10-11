@@ -2,6 +2,7 @@
 config/
 notes/
 knexfile.js
+spec-temp/
 
 # Logs
 logs

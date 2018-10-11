@@ -56,7 +56,7 @@ Back end for Relic Hunter Project
 ### POST: quests/:venue_id
 
 ```json
-  {
+{
     "title": "Science of the Ages",
     "intro_text": "Explore the science of the industrial revolution",
     "full_text": "An intriguing hunt through the science of the industrial revolution and first computers",
@@ -64,13 +64,13 @@ Back end for Relic Hunter Project
     "background_url": "https://...",
     "suitability": "For 8-10 year olds",
     "venue_area": "Industrial Revolution"
-  }
+}
 ```
 
 ### GET: quests/:quest_id/questions
 ```json
-    "questions": [
-      {
+"questions": [
+    {
         "id": 1,
         "quest_id": 1,
         "model_name": "steam-wheel",
@@ -78,19 +78,19 @@ Back end for Relic Hunter Project
         "text": "Find the largest steam driven wheel",
         "hint_text": "Look for the Firgrove Mill steam engine",
         "answer_text": "the wheel"
-      },
-    ]
+    },
+]
 ```
 
 ### POST: quests/:quest_id/questions
 
 ```json
-    {
-      "title": "Steam Driven Wheel",
-      "text": "Find the largest steam driven wheel",
-      "hint_text": "Look for the Firgrove Mill steam engine",
-      "answer_text": "the wheel"
-    }
+{
+    "title": "Steam Driven Wheel",
+    "text": "Find the largest steam driven wheel",
+    "hint_text": "Look for the Firgrove Mill steam engine",
+    "answer_text": "the wheel"
+}
 ```
 
 ### POST: answers/:question_id
@@ -144,7 +144,7 @@ Trains a model once 10 or more photos have been uploaded
 #### Response 200
 
 ```json
- {
+{
   "message": "Model trained"
 }
 ```
@@ -152,7 +152,7 @@ Trains a model once 10 or more photos have been uploaded
 #### Response 400
 
 ```json
- {
+{
   "message": "Not enough images to train"
 }
 ```
