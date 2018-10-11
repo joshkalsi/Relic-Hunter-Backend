@@ -9,7 +9,7 @@ exports.seed = function (knex, Promise) {
           venue_id: 1,
           title: 'Objects at Northcoders',
           intro_text: 'Find objects at Northcoders',
-          full_text: 'Explplore the third floor and find these exciting things...',
+          full_text: 'Explore the third floor and find these exciting things...',
           icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/questNcObjects.png',
           background_url: 'https://',
           suitability: 'For 18-45 year old geeks',

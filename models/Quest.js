@@ -22,7 +22,8 @@ class Quest extends Model {
         background_url: { type: 'string', minLength: 11, maxLength: 2083 },
         suitability: { type: 'string', minLength: 3, maxLength: 255 },
         venue_id: { type: 'integer' },
-        venue_area: { type: 'string', minLength: 3, maxLength: 255 }
+        venue_area: { type: 'string', minLength: 3, maxLength: 255 },
+        is_published: { type: 'boolean' }
       }
     };
   }

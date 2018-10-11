@@ -20,7 +20,8 @@ class Question extends Model {
         title: { type: 'string', minLength: 3, maxLength: 255 },
         text: { type: 'string', minLength: 10, maxLength: 500 },
         hint_text: { type: 'string', minLength: 5, maxLength: 300 },
-        answer_text: { type: 'string', minLength: 5, maxLength: 300 }
+        answer_text: { type: 'string', minLength: 5, maxLength: 300 },
+        is_published: { type: 'boolean' }
       }
     };
   }
