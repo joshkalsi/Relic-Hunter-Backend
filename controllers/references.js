@@ -68,9 +68,11 @@ exports.testModel = (req, res, next) => {
               const value = checkData.outputs[0].data.concepts[0].value;
               let isCorrect = false;
               if (value > 0.75) isCorrect = true;
+              console.log(isCorrect);
               Question.query()
                 .patchAndFetchById(question_id, { is_published: isCorrect })
                 .then((question) => {
+                  console.log(question);
                   if (isCorrect) res.status(200).send(question);
                   else res.status(400).send({ message: 'Test failed' });
                 })
