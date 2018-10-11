@@ -21,7 +21,7 @@ exports.up = knex => {
       table.string('background_url');
       table.string('suitability');
       table.string('venue_area');
-      table.string('is_published')
+      table.boolean('is_published')
         .defaultTo(false);
     })
     .createTable('questions', table => {
@@ -38,7 +38,7 @@ exports.up = knex => {
       table.string('text');
       table.string('hint_text');
       table.string('answer_text');
-      table.string('is_published')
+      table.boolean('is_published')
         .defaultTo(false);
     })
     .createTable('references', table => {
