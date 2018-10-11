@@ -7,11 +7,22 @@ exports.seed = function (knex, Promise) {
       return knex('quests').insert([
         {
           venue_id: 1,
+          title: 'Fuzzy Animals',
+          intro_text: 'A demo with stuffed toys',
+          full_text: 'Discover your furry friends in the lecture theatre',
+          icon_url: '',
+          background_url: '',
+          suitability: 'For 8-10 year olds',
+          venue_area: 'Lecture Hall',
+          is_published: true
+        },
+        {
+          venue_id: 1,
           title: 'Objects at Northcoders',
           intro_text: 'Find objects at Northcoders',
           full_text: 'Explore the third floor and find these exciting things...',
           icon_url: 'https://s3.eu-west-2.amazonaws.com/relichunter-images/questNcObjects.png',
-          background_url: 'https://',
+          background_url: '',
           suitability: 'For 18-45 year old geeks',
           venue_area: 'Third Floor',
           is_published: true
